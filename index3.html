@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Exercice 6</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id = "gameArea">
+    <h1>Devine un chiffre entre 1 et 100</h1>
+    Ecrit ton chiffre : <input type = "text" id = "userGuess"></br></br>
+    Essais restant: <input type = "text" id = "guessesLeft"></br></br>
+    <div id = "buttons">
+    <button id = "guess">Valider</button>
+    <button id = "reset">Recommencer</button>
+    </div>
+    </div>
+    <div id = "answer"></div>
+    
+    
+  <script>
+ 'use strict';
+(function() {
+  $(document).ready(function() {
+
+    //This creates the random variable for the game.
+    var randomNumber = Math.floor(Math.random() * 100) + 1
+    console.log("generatedNumber: " + randomNumber)
+
+    //This is the static number of guesses
+    var numberOfGuesses = document.getElementById("guessesLeft")
+    numberOfGuesses.value = 3
+
+    //this function plays the main part of the game.
+    document.getElementById("guess").onclick = function guess() {
+
+      var userGuess = document.getElementById("userGuess").value
+      if (userGuess < 0 || userGuess > 100) {
+        $('#answer').text("Rentre un nombre entre 0 et 100")
+        numberOfGuesses.value++
+      } else if (numberOfGuesses.value == 1 && randomNumber != userGuess) {
+        $("#answer").text("Echec. le chiffre était " + randomNumber + ". Appuie sur recommencer si tu veux retenter ta chance! ");
+        $('#guess').hide()
+        $('#reset').show()
+
+      } else if (randomNumber == userGuess) {
+        $("#answer").text("Super Bonne réponse!!! appuie sur recommencer si tu veux rejouer!");
+        $('#guess').hide()
+        $('#reset').show()
+      } else if (userGuess > randomNumber && userGuess > randomNumber + 20) {
+        $("#answer").text("chiffre trop grand")
+      } else if (userGuess > randomNumber) {
+        $("#answer").text("trop grand")
+      } else if (userGuess < randomNumber && userGuess < randomNumber - 20) {
+        $("#answer").text("chiffre trop petit")
+      } else {
+        $("#answer").text("trop petit")
+      }
+
+      numberOfGuesses.value--
+    }
+
+    //This function resets the game to default by reloading the page.    
+    document.getElementById("reset").onclick = function reset() {
+      location.reload(true)
+    }
+  });
+}());
+  </script> 
+</body>
+</html>

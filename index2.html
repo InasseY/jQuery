@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Exercice 6</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <input type="text" id="name" name="name">
+  <button id="plus">+</button>
+  <button id="minus">-</button>
+  <script>
+    let i = 0;
+    $(document).ready(function () {
+      $("#plus").click(function () {
+        $("input:text").val(++i)
+      })
+      $("#minus").click(function () {
+        $("input:text").val(--i)
+      })
+    })
+  </script> 
+</body>
+</html>

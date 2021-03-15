@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Exercice 6</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="box">
+    <button id="target" type="button">clickMe</button>
+    <br/>
+    <div id="output">0</div>
+  </div>
+  <script>
+  let score = 0
+$(function() {
+  $('#target').click(function() {
+    score += 1;
+    $('#output').html(score);
+  });
+});
+  </script> 
+</body>
+</html>

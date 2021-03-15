@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <title>Exercice 6</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body>
   <div id="text">
@@ -17,7 +18,9 @@
     <div class="color blue" id="blue"></div>
   </div>
   <script>
-  // ici votre code
+  $(".color").hover(function(){
+    $("#text").css("color",$(this)[0].getAttribute("class").substring(6))
+  })
   </script>
 </body>
 </html>

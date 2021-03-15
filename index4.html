@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Exercice 6</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <button id="btn1">Btn1</button>
+    <button id="btn2" >Btn2</button>
+    <button id="btn3">Btn3</button>
+    <button id="btn4">Btn4</button>
+    <button id="btn5">Btn5</button>
+    <div id="rectangle"></div>
+    
+<script>
+    $(function(){
+        $("#rectangle").css({"border":"5px solid", "width":"250px", "height":"10px"})
+            let taille = 10;
+            let tailleMax = 100;
+            let tailleMin = 10;
+        $("#btn1").click(function(){ 
+            taille=taille+10;
+                $("#rectangle").height(taille+"px");
+                    if (taille >= tailleMax) {
+                    $('#rectangle').height(tailleMin+"px");
+                    taille=10}
+        });
+        $("#btn2").click(function(){
+            $("#rectangle").css({"background-color":"green","border": "5px solid green"})
+        });
+        $("#btn3").click(function(){
+            $("#rectangle").css({"background-color":"white","border": "5px solid black"})
+        });
+        $("#btn4").click(function(){
+            $("#rectangle").hide()
+        });
+        $("#btn5").click(function(){
+            $("#rectangle").show()
+        });
+    });
+</script>
+</body>
+</html>

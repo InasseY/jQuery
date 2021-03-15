@@ -9,20 +9,31 @@
 
 <body>
   <form>
-    <div><label for="lastName">Nom : </label><input type="text" name="lastName" id="lastName" /></div>
-    <div><label for="firstName">Prénom : </label><input type="text" name="firstName" id="firstName" /></div>
-    <div><input type="submit" name="button" value="Envoyer" /></div>
+    <div>
+      <label for="lastName">Nom : </label>
+      <input type="text" name="lastName" id="lastName" />
+    </div>
+    <div>
+      <label for="firstName">Prénom : </label>
+      <input type="text" name="firstName" id="firstName" />
+    </div>
+    <div>
+      <input type="submit" name="button" value="Envoyer" />
+    </div>
   </form>
   <script>
   // ici votre code 
-  $("#lastname, #firstname").focusin(function ()
+  $(function(){
+  $("input[type=text]").focusin(function ()
   {
-    $("#lastname, #firstname").css("border","1px solid green")
+    $(this).css("border","3px solid green")
   })
-  $("#lastname, #firstname").focusout(function ()
+  $("input[type=text]").focusout(function ()
   {
-    $("#lastname, #firstname").css("border","1px solid red")
+    $(this).css("border","3px solid red")
   })
+})
+  
   </script>
 </body>
 
